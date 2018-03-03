@@ -22,24 +22,24 @@ In line comments
 // info on what is happening
 
 ## Timeline of Feature Implementation
-1. Game Loop
-2. Map development / generation
-3. Character movement / Map movement
-4. Time passage / day/night cycle (time moves when you move)
-5. HUD
-6. Square information (biome, ground type [tilled / not tilled], plant info, etc.)
-7. Inventory / picking things up
-8. Equipment / buying (shovel, hoe, etc.)
-9. Biomes
-10. Planting / farming
-11. Skills / progressoin tables/tree
-12. Notes
-13. Base building
-14. Events (popup of environmental things that happen)
-15. Animals
-16. Dungeon (alien ruins with cool alien tools and plants and stuff and thangs)
-17. Language support
-18. TUTORIAL / HELP PAGES
+- [ ] Game Loop
+- [ ] Map development / generation
+- [ ] Character movement / Map movement
+- [ ] Time passage / day/night cycle (time moves when you move)
+- [ ] HUD
+- [ ] Square information (biome, ground type [tilled / not tilled], plant info, etc.)
+- [ ] Inventory / picking things up
+- [ ] Equipment / buying (shovel, hoe, etc.)
+- [ ] Biomes
+- [ ] Planting / farming
+- [ ] Skills / progressoin tables/tree
+- [ ] Notes
+- [ ] Base building
+- [ ] Events (popup of environmental things that happen)
+- [ ] Animals
+- [ ] Dungeon (alien ruins with cool alien tools and plants and stuff and thangs)
+- [ ] Language support
+- [ ] TUTORIAL / HELP PAGES
 
 ## Stretch Goals
 1. Porting to web

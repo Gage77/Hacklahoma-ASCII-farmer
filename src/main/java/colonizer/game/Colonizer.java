@@ -42,8 +42,11 @@
 //******************************************
 
 import java.util.*;
-import java.awt.*;
+import java.lang.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
 
 public final class Colonizer
 {
@@ -52,15 +55,26 @@ public final class Colonizer
 
   public static void main(String[] args)
   {
-    JFrame mainFrame = new JFrame("Mission: Colonizer");
-    JPanel mainPanel = new JPanel();
+    JFrame frame = new JFrame();
+    frame.add( new JLabel("Colonizer" ), BorderLayout.NORTH );
 
-    mainFrame.setBounds(WINDOW_POSITION, WINDOW_POSITION, WINDOW_DIMENSIONS, WINDOW_DIMENSIONS);
-    mainFrame.getContentPane().setLayout(new BorderLayout());
-    mainFrame.getContentPane().add(mainPanel, BorderLayout.CENTER);
-    mainFrame.setVisible(true);
-		mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    Font consoleFont = new Font("Courier New", Font.BOLD, 20);
+    JTextArea txtConsole = new JTextArea();
+    txtConsole.setBackground(Color.BLACK);
+    txtConsole.setForeground(Color.WHITE);
+    txtConsole.setFont(consoleFont);
 
-    System.out.println("test");
+    PrintStream out = new PrintStream(new TextConsole(txtConsole));
+
+    System.setOut(out);
+    System.setErr(out);
+
+    frame.add(txtConsole);
+
+    frame.pack();
+    frame.setVisible(true);
+    frame.setSize(800,600);
+
+    System.out.println("TEST TEXT");
   }
 }
