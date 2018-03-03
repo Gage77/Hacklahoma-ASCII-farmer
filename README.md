@@ -10,7 +10,7 @@ Good luck, traveler!
 ## Conventions Used:
 Commenting conventions:
 
-Block comments (ex: title/header)\n
+Block comments (ex: title/header)  
 //*******************************  
 // Author(s)  
 // Copy right  
