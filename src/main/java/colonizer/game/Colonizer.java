@@ -50,24 +50,12 @@ import java.io.*;
 
 public final class Colonizer
 {
+  private static JFrame mainFrame = new JFrame("Missions: Colonizer");
+  private static JTextArea txtConsole = new JTextArea();
+
   // Main method
   public static void main(String[] args)
   {
-    // Setup game window
-    createGameWindow();
-
-
-    System.out.println("TEST TEXT");
-  }
-
-  // Create the main window for the game, as well as the adjusted
-  // JTextArea for output streaming
-  public static void createGameWindow()
-  {
-    // Create JFrame and JTextArea
-    JFrame frame = new JFrame("Mission: Colonizer");
-    JTextArea txtConsole = new JTextArea();
-
     // Setup stuff to make the JTextArea look like a console
     Font consoleFont = new Font("Courier New", Font.BOLD, 20);
     txtConsole.setBackground(Color.BLACK);  // Sets background to black
@@ -80,11 +68,16 @@ public final class Colonizer
     System.setErr(out); // Set standard error to follow new PrintStream
 
     // Add the JTextArea to the JFrame frame
-    frame.add(txtConsole);
+    mainFrame.add(txtConsole);
 
     // Pack and set frame to visible
-    frame.pack();
-    frame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Set application to maximize in screen
-    frame.setVisible(true);
+    mainFrame.pack();
+    mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Set application to maximize in screen
+    mainFrame.setVisible(true);
+
+    // Test stuff
+
+
+    System.out.println("TEST TEXT");
   }
 }
