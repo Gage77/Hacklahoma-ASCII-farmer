@@ -50,31 +50,41 @@ import java.io.*;
 
 public final class Colonizer
 {
-  final static int WINDOW_DIMENSIONS = 600;
-  final static int WINDOW_POSITION = 50;
-
+  // Main method
   public static void main(String[] args)
   {
-    JFrame frame = new JFrame();
-    frame.add( new JLabel("Colonizer" ), BorderLayout.NORTH );
+    // Setup game window
+    createGameWindow();
 
-    Font consoleFont = new Font("Courier New", Font.BOLD, 20);
-    JTextArea txtConsole = new JTextArea();
-    txtConsole.setBackground(Color.BLACK);
-    txtConsole.setForeground(Color.WHITE);
-    txtConsole.setFont(consoleFont);
-
-    PrintStream out = new PrintStream(new TextConsole(txtConsole));
-
-    System.setOut(out);
-    System.setErr(out);
-
-    frame.add(txtConsole);
-
-    frame.pack();
-    frame.setVisible(true);
-    frame.setSize(800,600);
 
     System.out.println("TEST TEXT");
+  }
+
+  // Create the main window for the game, as well as the adjusted
+  // JTextArea for output streaming
+  public static void createGameWindow()
+  {
+    // Create JFrame and JTextArea
+    JFrame frame = new JFrame("Mission: Colonizer");
+    JTextArea txtConsole = new JTextArea();
+
+    // Setup stuff to make the JTextArea look like a console
+    Font consoleFont = new Font("Courier New", Font.BOLD, 20);
+    txtConsole.setBackground(Color.BLACK);  // Sets background to black
+    txtConsole.setForeground(Color.WHITE);  // Makes the foreground (text) white
+    txtConsole.setFont(consoleFont);  // Adds the font to the JTextArea
+
+    // Establish a new output stream for System.out, making it go to JTextArea
+    PrintStream out = new PrintStream(new TextConsole(txtConsole));
+    System.setOut(out); // Set standard out to follow new PrintStream
+    System.setErr(out); // Set standard error to follow new PrintStream
+
+    // Add the JTextArea to the JFrame frame
+    frame.add(txtConsole);
+
+    // Pack and set frame to visible
+    frame.pack();
+    frame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Set application to maximize in screen
+    frame.setVisible(true);
   }
 }

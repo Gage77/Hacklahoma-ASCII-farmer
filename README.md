@@ -32,8 +32,10 @@ In line comments
 - [ ] Equipment / buying (shovel, hoe, etc.)
 - [ ] Biomes
 - [ ] Planting / farming
-- [ ] Skills / progressoin tables/tree
+- [ ] Skills / progression tables/tree
 - [ ] Notes
+- [ ] Title screen / start menu
+- [ ] Saving
 - [ ] Base building
 - [ ] Events (popup of environmental things that happen)
 - [ ] Animals
