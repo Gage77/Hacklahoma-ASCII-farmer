@@ -2,6 +2,7 @@
   This class will create the player cursor
 **/
 import java.util.*;
+import java.swing.*;
 
 public playerCursor extends DefaultCaret()
 {
