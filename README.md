@@ -11,14 +11,14 @@ Good luck, traveler!
 Commenting conventions:
 
 Block comments (ex: title/header)\n
-//*******************************\n
-// Author(s)\n
-// Copy right\n
-// Last edited (maybe)\n
-// Version number\n
+//*******************************\s\s
+// Author(s)\s\s
+// Copy right\s\s
+// Last edited (maybe)\s\s
+// Version number\s\s
 //*******************************
 
-In line comments\n
+In line comments\s\s
 // info on what is happening
 
 ## Timeline of Feature Implementation
