@@ -22,8 +22,6 @@
 //    MapManager (create the maps, and update the maps, and HUD) (view)
 //    Map (model, stores info on the map)
 //
-//    GridView (Created by map, the main window of the applcation, handled by MapManager)
-//
 //    Character (values for inventory, hunger values)
 //    CharacterManager (handles movment and interaction)
 //
@@ -47,6 +45,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public final class Colonizer
 {
@@ -61,6 +62,7 @@ public final class Colonizer
     txtConsole.setBackground(Color.BLACK);  // Sets background to black
     txtConsole.setForeground(Color.WHITE);  // Makes the foreground (text) white
     txtConsole.setFont(consoleFont);  // Adds the font to the JTextArea
+    txtConsole.setEditable(false);
 
     // Establish a new output stream for System.out, making it go to JTextArea
     PrintStream out = new PrintStream(new TextConsole(txtConsole));
@@ -75,9 +77,27 @@ public final class Colonizer
     mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Set application to maximize in screen
     mainFrame.setVisible(true);
 
-    // Test stuff
+    String testMap = readFile("testMap.txt");
+    System.out.print(testMap);
+  }
 
+  public static String readFile(String fileName)
+  {
+    try {
+      BufferedReader br = new BufferedReader(new FileReader(fileName));
+      StringBuilder sb = new StringBuilder();
+      String line = br.readLine();
 
-    System.out.println("TEST TEXT");
+        while ((line = br.readLine()) != null) {
+            sb.append(line);
+            sb.append("\n");
+            line = br.readLine();
+        }
+      br.close();
+      return sb.toString();
+    } catch (IOException e1) {
+      e1.printStackTrace();
+    }
+    return "NULL";
   }
 }

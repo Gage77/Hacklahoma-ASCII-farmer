@@ -6,7 +6,7 @@
 
 import java.util.*;
 
-public map()
+public class Map
 {
   //private varibles
   //the biomes of the square
@@ -39,9 +39,9 @@ public map()
   }
 
   //sets the value of the exits
-  public static void setExits(exits a)
+  public static void setExits(int exits)
   {
-    validExits = a;
+    validExits = exits;
   }
 
   //sets the valid exits
@@ -57,7 +57,7 @@ public map()
   }
 
   //gets the biome
-  public static ArrrayList<String>() getBiome()
+  public static ArrrayList<String> getBiome()
   {
     return biomes;
   }
@@ -67,6 +67,5 @@ public map()
   {
     return characterLocation;
   }
-
 
 }
