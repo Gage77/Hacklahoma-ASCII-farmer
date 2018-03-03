@@ -10,15 +10,15 @@ Good luck, traveler!
 ## Conventions Used:
 Commenting conventions:
 
-Block comments (ex: title/header)
-//*******************************
-// Author(s)
-// Copy right
-// Last edited (maybe)
-// Version number
+Block comments (ex: title/header)\n
+//*******************************\n
+// Author(s)\n
+// Copy right\n
+// Last edited (maybe)\n
+// Version number\n
 //*******************************
 
-In line comments
+In line comments\n
 // info on what is happening
 
 ## Timeline of Feature Implementation
