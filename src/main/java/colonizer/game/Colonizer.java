@@ -81,8 +81,26 @@ public final class Colonizer
     mainFrame.pack();
     mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Set application to maximize in screen
     mainFrame.setVisible(true);
+    //TODO !!!test!!!
+    try {
+            //will hold the map
+            String mapString = "";
+            //buffer to read in our map file
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(map.txt);
 
-
+            //reads the entire file
+            while((line = buff.readLine()) != null) {
+                //concats the file into one large string
+                mapString = mapString.concat(line);
+            }
+            buff.close();
+            catch(FileNotFoundException e) {
+              e.printStackTrace();
+              }
+            catch(IOException e) {
+              e.printStackTrace();
+              }
+        }
 
     String testMap = "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n"
     + "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n"
