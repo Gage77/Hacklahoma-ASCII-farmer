@@ -122,9 +122,10 @@ namespace MissionColonizer
 		public void showInventory()
 		{
 			Console.Clear();
-			for (int i = 0; i < inventory.Capacity; i++)
+			Console.WriteLine("Inventory:");
+			foreach (string item in inventory)
 			{
-				Console.WriteLine(inventory[i]);
+				Console.WriteLine("\t" + item);
 			}
 
 			Console.WriteLine();
