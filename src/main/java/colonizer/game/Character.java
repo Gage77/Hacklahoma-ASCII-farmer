@@ -19,7 +19,7 @@ public class Character
   {
     hunger = 100;
     location = new Point(0, 0);
-    String [] inventory = new int[3];
+    String [] inventory = new String[3];
   }
 
   //constructor
@@ -27,7 +27,7 @@ public class Character
   {
     this.hunger = hunger;
     this.location = new Point(x, y);
-    String [] inventory = new int[3];
+    String [] inventory = new String[3];
   }
 
   //this will create the string for player HUD
@@ -35,7 +35,8 @@ public class Character
   {
     String hud = new String("Inventory: "+ "\n"
     +"1.Tools  2.Base 3.Food  "+ "\n"
-    +"Hunger Level "+ hunger+"%")
+    +"Hunger Level "+ hunger+"%");
+    return hud;
   }
 
   //getters & setters
@@ -75,12 +76,12 @@ public class Character
   public void addInventory(String item)
   {
     if(item.contains("tool"))
-      String[1].concat(item);
-      
+      inventory[1].concat(item);
+
     if(item.contains("base"))
-      String[2].concat(item);
+      inventory[2].concat(item);
 
     if(item.contains("food"))
-      String[3].concat(item);
+      inventory[3].concat(item);
   }
 }

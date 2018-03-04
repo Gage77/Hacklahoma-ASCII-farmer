@@ -86,7 +86,7 @@ public final class Colonizer
     //TODO !!!test!!! Do we want to make the map an open file rather than a string?
     try {
             //buffer to read in our map file
-            BufferedReader buff = new BufferedReader(new FileReader(map.txt);
+            BufferedReader buff = new BufferedReader(new FileReader(map.txt));
             //reads a file into the JTextArea. Currently this only reads a single map
             txtConsole.read(buff, "map.txt");
 
@@ -96,15 +96,18 @@ public final class Colonizer
                 //concats the file into one large string
                 mapString = mapString.concat(line);
             }
-            buff.close();
-            catch(FileNotFoundException e) {
-              e.printStackTrace();
-              }
-            catch(IOException e) {
-              e.printStackTrace();
-              }
-            **/
-        }
+            buff.close();**/
+
+            //TODO when do we close the file map.txt? On a save only?
+        }//end try
+        catch(FileNotFoundException e) {
+          e.printStackTrace();
+        }//end FileNotFoundException
+        catch(IOException e) {
+          e.printStackTrace();
+        }//end IOException
+        finally{
+        };
 
     //String testMap = "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n"
     //+ "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n"
