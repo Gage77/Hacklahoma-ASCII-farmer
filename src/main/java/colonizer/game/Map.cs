@@ -21,7 +21,8 @@ namespace MissionColonizer
 
 		private int characterLocationX = 0;    // Character location of x coord
 		private int characterLocationY = 0;
-		private Dictionary<int, Plant> plantValues = new Dictionary<int, Plant>();  // Plant locations
+		// Plant locations, int is the Tuple in character
+		private Dictionary<int, Plant> plantValues = new Dictionary<int, Plant>();
 
 		private Character pc;   // Player character object
 
@@ -40,10 +41,14 @@ namespace MissionColonizer
 			characterLocationY = pc.getXY().Item2;
 		}
 
+		//will grow all plants in plantValues
 		public void grow()
 		{
+			foreach (Plant key in plants.Keys.ToList()) //move over all entries
+			{
+    		vector[key].growBase(); //preform grow on this entry
+			}
 			//TODO change when we implement biomes
-
 		}
 
 		// x y coord of player's current position, and current ascii char

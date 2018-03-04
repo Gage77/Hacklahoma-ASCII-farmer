@@ -69,12 +69,10 @@ namespace MissionColonizer
 		}
 
 		// Reset the howGrown value to new value
-		public void rePlant(int newHowGrown)
+		public void rePlant()
 		{
-			howGrown = newHowGrown;
+			howGrown = 0;
 			isFarmed = true;
-			//TODO Might need some more stuff here
-			//NOTE does a plant know where it is? Does it need to?
 		}
 
 		// Return the food value of this plant
