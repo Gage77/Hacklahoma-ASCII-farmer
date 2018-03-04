@@ -31,7 +31,44 @@ namespace MissionColonizer
 			characterLocationX = 0;
 			characterLocationY = 0;
 
-			//TODO read map file, and store location of all plants
+			//NOTE change if map grows
+			char grid = new char[79][25];//this will our x/y coordinate grid
+
+			//creates a reader that will read until a newline char
+			StreamReader strm = new StreamReader(../../worldAlphaMap.txt);
+			string line = strm.readLine();
+			//moves over through the Map
+			int k =0;
+			while(line != null)
+			{
+				//string into a char array. this will be a row in our grid
+				char gridRow = line.ToCharArray;
+				for(int i=0, i<gridRow.length, i++) //for char in the array
+				{
+					grid[i][k] = gridRow[i]; //fills the row
+				}
+				string line = strm.readLine(); //reads the next row
+				k++;
+			}
+
+			//moves over through the Map finding all the plants
+			k =0;
+			while(line != null)
+			{
+				for(int i=0, i<gridRow.length, i++) //for a row in the array
+				{
+					//if the char is a plant
+					if(grid[i][k] == 'm' || grid[i][k] == 'P' || grid[i][k] == 'm'
+					|| grid[i][k] == '*' grid[i][k] == 'Y')
+					{
+						Plant veg = new Plant(); //creates a plant with the empty constrt
+						plantValues.add((int.TryParse(i.ToString+k.ToString)), veg); //add it to plants
+					}
+				}
+				string line = strm.readLine(); //reads the next row
+				k++;
+			}
+
 		}
 
 		public Map(Character pc)
