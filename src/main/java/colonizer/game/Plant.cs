@@ -12,19 +12,23 @@ namespace MissionColonizer
 		private int foodValue = 0;
 		private string plantName = "This plant has not yet been named";
 		private int howGrown = 0;
+		private bool isFarmed = false; //TODO getters & setters
+		private int price = 0; //value in store
 
 		public Plant()
 		{
 			foodValue = 0;
 			howGrown = 0;
+			price = 10;
 			plantName = "Strange Plant";
 		}
 
-		public Plant(int food, string name, int grown)
+		public Plant(int food, string name, int grown, int p)
 		{
 			foodValue = food;
 			plantName = name;
 			howGrown = grown;
+			price = p;
 		}
 
 		public Plant harvest()
@@ -32,10 +36,12 @@ namespace MissionColonizer
 			return this;
 		}
 
-		// Increase how much the plant has grown by base num (50)
+		// Increase how much the plant has grown by base num (25), more if farmed
 		public void growBase()
 		{
-			howGrown = howGrown + 50;
+			howGrown = howGrown + 25; //base growth for all plants
+			if(isFarmed) //if farmed
+				howGrown = howGrown + 25; //grow by a total of 50
 
 			// check to make sure it hasn't overgrown or undergrown
 			if (howGrown > 100)
@@ -66,7 +72,9 @@ namespace MissionColonizer
 		public void rePlant(int newHowGrown)
 		{
 			howGrown = newHowGrown;
+			isFarmed = true;
 			//TODO Might need some more stuff here
+			//NOTE does a plant know where it is? Does it need to?
 		}
 
 		// Return the food value of this plant
