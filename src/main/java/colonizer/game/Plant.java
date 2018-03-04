@@ -1,0 +1,41 @@
+/**
+The plant object will keep track of how much hunger a plant will replace
+and how grow it's food is
+**/
+
+public class plant
+{
+  private int foodValue = 0; // how much hunger this plant will replace
+  private String plantName = "This plant has not been named!!" // name of plant
+  private int howGrown = 0; // should be between 0-100%
+
+  //empty constructor
+  public plant plant()
+  {
+    foodValue = 20;
+    plantName = "Strange Plant";
+    howGrown = 0;
+  }
+
+  //constructor
+  public plant plant(int val, String name, int growth)
+  {
+    //sets the class varibles
+    foodValue = val;
+    plantName = name;
+    howGrown = growth;
+  }
+
+  //harvests the plant!!
+  public plant harvest()
+  {
+    //creates a harvest plant, that has a gorwth of zero
+    Plant harvey = new Plant(foodValue, plantName, 0);
+    return harvey //returns the harvest plant so that it may be added to the inventory
+  }
+
+  public plant rePlant(Plant harvey)
+  {
+    //TODO implement replanting. should pull plant from inventory
+  }
+}
