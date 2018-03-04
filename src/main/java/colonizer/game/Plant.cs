@@ -100,5 +100,13 @@ namespace MissionColonizer
 		{
 			plantName = name;
 		}
+
+		//converts a plant into a text block
+	  public string toString()
+	  {
+	    string info = plantName+" worth "+value+"Cr\n"
+			+"nutritional value "+foodValue+"%"+'\n';
+	    return info;
+	  }
 	}
 }

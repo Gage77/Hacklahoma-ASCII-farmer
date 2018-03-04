@@ -16,6 +16,8 @@ namespace MissionColonizer
 		private string characterIcon = "@";	// Character icon
 		private string overTakenIcon = "!";	// Icon that is overtaken by character when moved
 		private int credits = 0;	// Total money credits
+		//TODO we will need a getter for the plants in the players inventory,
+		//that will return an ArrayList 
 
 		public Character()
 		{
