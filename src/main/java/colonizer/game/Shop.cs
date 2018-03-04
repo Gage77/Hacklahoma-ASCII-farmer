@@ -8,12 +8,12 @@ namespace MissionColonizer
 {
   public class shop
   {
-    private int credits =0;//will hold the amount of spending cash the player has
+    private int credits = 0;//will hold the amount of spending cash the player has
     private ArrayList pcPlants; //will hold all of the players plants
     //empty constructor
     public static void shop()
     {
-        pcPlants = null;
+        pcPlants = ;
     }
 
     //a constructor that take an int for the $$ of the player
@@ -23,15 +23,13 @@ namespace MissionColonizer
         this.pcPlants = pcPlants;
     }
 
-    //This will take a number representing what a player selected.
-    //It will then return a string representing their pruchase
+    //this will proccess a selection, turnning an int into a item string
     public static string purchase(int index)
     {
-      //NOTE does this allow for multiple things to be bought?
       switch (index) //checks to see what the player selected
       {
           case 1:
-              Console.WriteLine("Sit tight, your shipment is on it's way colonizer!"); 
+              Console.WriteLine("Sit tight, your shipment is on it's way colonizer!");
               //TODO makes sure it prints correctly
               return "shovel"; //makes picking up plants faster
               break;
@@ -64,9 +62,26 @@ namespace MissionColonizer
     }
 
     //this will bring up and handle the sell screen
-    public static int createSellView()
+    public static string createSellView()
     {
-
+        int index i //this will be use as the index for tha ArrayList
+        //this will create the first prompt line
+        string sellView = "Profits are the priority of all colonizers!\n"
+        int k = 1; //k will count the list number
+        //this loop should move through the array printing each entry with
+        //the format 1. plant info
+        for(i=0, i < pcPlants.length; i++) //NOTE is this logic correct?
+        {
+          sellView = sellView + k.ToString+". "+pcPlants[i].toString+'\n';
+          k++; //increment k
+          if(k > 3) //if the player has more than 3 plants in inventory
+          {
+            //make multiple pages
+            //NOTE how do I 
+          }
+        }
+            //appends the exit option to the end of the menu
+            sellView = sellView+i.ToString+". Exit";
     }
 
   }//end of class shop

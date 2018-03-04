@@ -4,6 +4,9 @@
 *  character location (within the square), and the valid exits (via a setter.getter).
 **/
 
+//NOTE plants harvested and store in player inventory must disappear from the
+// dictinary, and then be added at thier new position when planted
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
