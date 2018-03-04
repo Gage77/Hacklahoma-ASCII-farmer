@@ -22,9 +22,9 @@ In line comments
 // info on what is happening
 
 ## Timeline of Feature Implementation
-- [ ] Game Loop
+- [x] Game Loop
 - [ ] Map development / generation
-- [ ] Character movement / Map movement
+- [x] Character movement
 - [ ] Time passage / day/night cycle (time moves when you move)
 - [ ] HUD
 - [ ] Square information (biome, ground type [tilled / not tilled], plant info, etc.)
@@ -34,7 +34,7 @@ In line comments
 - [ ] Planting / farming
 - [ ] Skills / progression tables/tree
 - [ ] Notes
-- [ ] Title screen / start menu
+- [x] Title screen / start menu
 - [ ] Saving
 - [ ] Base building
 - [ ] Events (popup of environmental things that happen)
