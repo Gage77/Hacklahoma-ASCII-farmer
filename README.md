@@ -21,15 +21,22 @@ Block comments (ex: title/header)
 In line comments  
 // info on what is happening
 
+## Controls:
+Arrow keys to move
+
+R = Shop
+I = Inventory
+Escape = Quit
+
 ## Timeline of Feature Implementation
 - [x] Game Loop
-- [ ] Map development / generation
+- [x] Map development / generation
 - [x] Character movement
-- [ ] Time passage / day/night cycle (time moves when you move)
+- [x] Time passage / day/night cycle (time moves when you move)
 - [ ] HUD
 - [ ] Square information (biome, ground type [tilled / not tilled], plant info, etc.)
 - [ ] Inventory / picking things up
-- [ ] Equipment / buying (shovel, hoe, etc.)
+- [x] Equipment / buying (shovel, hoe, etc.)
 - [ ] Biomes
 - [ ] Planting / farming
 - [ ] Skills / progression tables/tree
@@ -41,10 +48,14 @@ In line comments
 - [ ] Animals
 - [ ] Dungeon (alien ruins with cool alien tools and plants and stuff and thangs)
 - [ ] Language support
-- [ ] TUTORIAL / HELP PAGES
+- [x] TUTORIAL / HELP PAGES
 
 ## Stretch Goals
 1. Porting to web
 2. More Events
 3. More basebuilding
 4. Multiplayer
+
+## Misc Notes:
+The directory structure suggests that this was written in Java, but it was actually  
+written in C#, as we found that C# would fit our needs better.

@@ -40,7 +40,7 @@ namespace MissionColonizer
 		public void growBase()
 		{
 			howGrown = howGrown + 25; //base growth for all plants
-			if(isFarmed) //if farmed
+			if (isFarmed) //if farmed
 				howGrown = howGrown + 25; //grow by a total of 50
 
 			// check to make sure it hasn't overgrown or undergrown
@@ -69,10 +69,12 @@ namespace MissionColonizer
 		}
 
 		// Reset the howGrown value to new value
-		public void rePlant()
+		public void rePlant(int newHowGrown)
 		{
-			howGrown = 0;
+			howGrown = newHowGrown;
 			isFarmed = true;
+			//TODO Might need some more stuff here
+			//NOTE does a plant know where it is? Does it need to?
 		}
 
 		// Return the food value of this plant
@@ -100,11 +102,11 @@ namespace MissionColonizer
 		}
 
 		//converts a plant into a text block
-	  public string toString()
-	  {
-	    string info = plantName+" worth "+value+"Cr\n"
-			+"nutritional value "+foodValue+"%"+'\n';
-	    return info;
-	  }
+		public string toString()
+		{
+			string info = plantName + " worth " + price + "Cr\n"
+				+ "nutritional value " + foodValue + "%" + '\n';
+			return info;
+		}
 	}
 }

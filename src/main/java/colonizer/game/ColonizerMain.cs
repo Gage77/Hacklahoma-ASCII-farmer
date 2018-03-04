@@ -8,7 +8,7 @@
 **************************
 *
 * @author Conner Flansberg, Hunter Black
-* @version 0.3
+* @version 0.85
 *
 **************************
 * Last Edited:
@@ -16,30 +16,8 @@
 *
 ************************************/
 
-//******************************************
-// Objects needed:
-//    MapManager (create the maps, and update the maps, and HUD) (view)
-//    Map (model, stores info on the map)
-//
-//    Character (values for inventory, hunger values)
-//    CharacterManager (handles movment and interaction)
-//
-//    TimeMangager (handles clock and day/night cycle, gets values from
-//                character and map, and effects plant growth, only get time)
-//
-//    Shop (handles shop interaction)
-//
-//    Plant (created by the Map, hold data on plants such as ID, grow time, hunger value)
-//
-//    Note will be separate or open native text editor, or something similar
-//        OR open a text box that reads and writes to a txt file associated with the save
-//
-//    BaseManager (manages Base objects and interaction with base objects)
-//    Base  (holds information on base stuff)
-//******************************************
-
 using System;   // imports standard .NET library
-using System.IO;	// imports standard system input/output (file readers and streams)
+using System.IO;
 
 namespace MissionColonizer
 {
@@ -69,8 +47,20 @@ namespace MissionColonizer
 				line = sr.ReadLine();
 			}
 
-			while (menuDecision == 0)
+			while (menuDecision != 3)
 			{
+				// Print out main page again if help was just accessed
+				if (menuDecision == 5)
+				{
+					sr = new StreamReader("../../titleMenu.txt");
+					line = sr.ReadLine();
+					while (line != null)
+					{
+						Console.WriteLine(line);
+						line = sr.ReadLine();
+					}
+				}
+
 				ConsoleKeyInfo cki = Console.ReadKey();
 
 				switch (cki.Key)
@@ -91,6 +81,7 @@ namespace MissionColonizer
 						break;
 					case ConsoleKey.D5: // Help
 						menuDecision = 5;
+						displayHelp();
 						break;
 				}
 			}
@@ -130,6 +121,23 @@ namespace MissionColonizer
 
 			Game game = new Game();
 			game.Run();
+		}
+
+		static void displayHelp()
+		{
+			Console.Clear();
+
+			// Show help page
+			StreamReader sr = new StreamReader("../../helpPage.txt");
+			string line = sr.ReadLine();
+			while (line != null)
+			{
+				Console.WriteLine(line);
+				line = sr.ReadLine();
+			}
+
+			Console.ReadKey();
+			Console.Clear();
 		}
 	}
 }

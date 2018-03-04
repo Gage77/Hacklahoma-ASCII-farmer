@@ -1,0 +1,9 @@
+Controls:
+
+Movement through the arrow keys
+
+R = Shop
+I = Inventory
+Escape = quit
+
+Press any key to return...

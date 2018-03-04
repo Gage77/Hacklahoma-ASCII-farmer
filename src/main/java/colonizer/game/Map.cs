@@ -10,6 +10,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 
 namespace MissionColonizer
 {
@@ -21,8 +22,7 @@ namespace MissionColonizer
 
 		private int characterLocationX = 0;    // Character location of x coord
 		private int characterLocationY = 0;
-		// Plant locations, int is the Tuple in character
-		private Dictionary<int, Plant> plantValues = new Dictionary<int, Plant>();
+		private Dictionary<int, Plant> plantValues = new Dictionary<int, Plant>();  // Plant locations
 
 		private Character pc;   // Player character object
 
@@ -31,44 +31,7 @@ namespace MissionColonizer
 			characterLocationX = 0;
 			characterLocationY = 0;
 
-			//NOTE change if map grows
-			char grid = new char[79][25];//this will our x/y coordinate grid
-
-			//creates a reader that will read until a newline char
-			StreamReader strm = new StreamReader(../../worldAlphaMap.txt);
-			string line = strm.readLine();
-			//moves over through the Map
-			int k =0;
-			while(line != null)
-			{
-				//string into a char array. this will be a row in our grid
-				char gridRow = line.ToCharArray;
-				for(int i=0, i<gridRow.length, i++) //for char in the array
-				{
-					grid[i][k] = gridRow[i]; //fills the row
-				}
-				string line = strm.readLine(); //reads the next row
-				k++;
-			}
-
-			//moves over through the Map finding all the plants
-			k =0;
-			while(line != null)
-			{
-				for(int i=0, i<gridRow.length, i++) //for a row in the array
-				{
-					//if the char is a plant
-					if(grid[i][k] == 'm' || grid[i][k] == 'P' || grid[i][k] == 'm'
-					|| grid[i][k] == '*' grid[i][k] == 'Y')
-					{
-						Plant veg = new Plant(); //creates a plant with the empty constrt
-						plantValues.add((int.TryParse(i.ToString+k.ToString)), veg); //add it to plants
-					}
-				}
-				string line = strm.readLine(); //reads the next row
-				k++;
-			}
-
+			//TODO Find way to fill dictinary
 		}
 
 		public Map(Character pc)
@@ -76,16 +39,20 @@ namespace MissionColonizer
 			this.pc = pc;
 			characterLocationX = pc.getXY().Item1;
 			characterLocationY = pc.getXY().Item2;
+
+			StreamReader sr = new StreamReader("../../alphaMap.txt");
+			string line = sr.ReadLine();
+			while (line != null)
+			{
+				Console.WriteLine(line);
+				line = sr.ReadLine();
+			}
 		}
 
-		//will grow all plants in plantValues
 		public void grow()
 		{
-			foreach (Plant key in plants.Keys.ToList()) //move over all entries
-			{
-    		vector[key].growBase(); //preform grow on this entry
-			}
 			//TODO change when we implement biomes
+
 		}
 
 		// x y coord of player's current position, and current ascii char
@@ -157,15 +124,109 @@ namespace MissionColonizer
 						pc.setPosition(pc.getX() + 1, pc.getY());
 						hasMoved = true;
 						break;
+					case ConsoleKey.R:
+						string shopView = "";
+						doShopThings(pc, shopView);
+						Draw();
+						break;
+					case ConsoleKey.I:
+						pc.showInventory();
+						break;
+					case ConsoleKey.Escape:
+						Environment.Exit(0);
+						break;
 				}
 			}
 
 			return hasMoved;
 		}
 
+		public void doShopThings(Character pc, string shopView)
+		{
+			int userInput = 0;
+			string purchasedString = "";
+
+			while (userInput != 5)
+			{
+				Shop shop = new Shop(pc.getCredits(), pc.getInventory());
+				shopView = shop.createShopView();
+
+				Console.Clear();
+				Console.Write(shopView);
+
+				Console.WriteLine(purchasedString);
+
+				ConsoleKeyInfo cki = Console.ReadKey();
+
+				switch (cki.Key)
+				{
+					case ConsoleKey.D1:
+						userInput = 1;
+						if (pc.getCredits() >= 10)
+						{
+							purchasedString = "Hold tight, your shipment is on its way...\nPurchased shovel!";
+							// Decrement character's credits
+							pc.setCredits(pc.getCredits() - 10);
+							pc.addToInventory("Shovel");
+						}
+						else
+						{
+							purchasedString = "You don't have enough credits to purchase that.\n";
+						}
+						break;
+					case ConsoleKey.D2:
+						userInput = 2;
+						if (pc.getCredits() >= 10)
+						{
+							purchasedString = "Hold tight, your shipment is on its way...\nPurchased hoe!";
+							// Decrement character's credits
+							pc.setCredits(pc.getCredits() - 10);
+							pc.addToInventory("Hoe");
+						}
+						else
+						{
+							purchasedString = "You don't have enough credits to purchase that.\n";
+						}
+						break;
+					case ConsoleKey.D3:
+						userInput = 3;
+						if (pc.getCredits() >= 20)
+						{
+							purchasedString = "Hold tight, your shipment is on its way...\nPurchased MRE!";
+							// Decrement character's credits
+							pc.setCredits(pc.getCredits() - 20);
+							pc.addToInventory("MRE");
+						}
+						else
+						{
+							purchasedString = "You don't have enough credits to purchase that.\n";
+						}
+						break;
+					case ConsoleKey.D4:
+						userInput = 4;
+						break;
+					case ConsoleKey.D5:
+						userInput = 5;
+						break;
+				}
+
+				//TODO add purchased item to inventory
+			}
+
+			Console.Clear();
+		}
+
 		public void Draw()
 		{
-
+			Console.Clear();
+			// Print test map to console
+			StreamReader sr = new StreamReader("../../alphaMap.txt");
+			string line = sr.ReadLine();
+			while (line != null)
+			{
+				Console.WriteLine(line);
+				line = sr.ReadLine();
+			}
 		}
 	}
 }
