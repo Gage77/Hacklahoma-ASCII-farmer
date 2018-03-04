@@ -2,8 +2,7 @@
 *  This class will hold all information pertaining to character
 **/
 
-import java.awt.*;
-import java.util.*;
+using System;
 
 public class Character
 {
@@ -75,13 +74,13 @@ public class Character
 
   public void addInventory(String item)
   {
-    if(item.contains("tool"))
+    if(item.Contains("tool"))
       inventory[1].concat(item);
 
-    if(item.contains("base"))
+    if(item.Contains("base"))
       inventory[2].concat(item);
 
-    if(item.contains("food"))
+    if(item.Contains("food"))
       inventory[3].concat(item);
   }
 }
