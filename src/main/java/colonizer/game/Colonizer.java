@@ -8,7 +8,7 @@
 **************************
 *
 * @author Conner Flansberg, Hunter Black
-* @version 0.1
+* @version 0.28
 *
 **************************
 * Last Edited:
@@ -49,7 +49,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public final class Colonizer implements KeyListener, ActionListener
+public final class Colonizer
 {
   private static JFrame mainFrame = new JFrame("Missions: Colonizer");
   private static JTextArea txtConsole = new JTextArea();
@@ -79,8 +79,23 @@ public final class Colonizer implements KeyListener, ActionListener
     mainFrame.add(txtConsole);
 
     // Create keyboard listener for JTextArea
-    txtConsole.isFocusable(true);
-    txtConsole.addKeyListener(this);
+    txtConsole.addKeyListener(new KeyListener() {
+      @Override
+      public void keyPressed(KeyEvent e)
+      {
+        System.out.println("Key pressed: " + e.getKeyChar());
+      }
+      @Override
+      public void keyReleased(KeyEvent e)
+      {
+        System.out.println("Key released: " + e.getKeyChar());
+      }
+      @Override
+      public void keyTyped(KeyEvent e)
+      {
+        System.out.println("Key typed: " + e.getKeyChar());
+      }
+    });
 
     // Pack and set frame to visible
     mainFrame.pack();
@@ -88,6 +103,7 @@ public final class Colonizer implements KeyListener, ActionListener
     mainFrame.setVisible(true);
 
     // Read in title ascii art
+    //BUG Not printing title file
     try {
             //buffer to read in our map file
             BufferedReader buff = new BufferedReader(new FileReader("asciiTitle.txt"));
@@ -105,10 +121,10 @@ public final class Colonizer implements KeyListener, ActionListener
         finally{
     };
 
-    while(menuSelection == 0)
-    {
-
-    }
+    // while(menuSelection == 0)
+    // {
+    //
+    // }
 
     //TODO !!!test!!! Do we want to make the map an open file rather than a string?
     try {
@@ -127,26 +143,7 @@ public final class Colonizer implements KeyListener, ActionListener
         }//end IOException
         finally{
     };
-    System.out.println(txtConsole.getSelectedText());
-  }
 
-  public void keyTyped(KeyEvent e)
-  {
-    System.out.println("Key typed: " + e.getKeyChar());
-  }
-
-  public void keyPressed(KeyEvent e)
-  {
-    System.out.println("Key pressed: " + e.getKeyChar());
-  }
-
-  public void keyReleased(KeyEvent e)
-  {
-    System.out.println("Key released: " + e.getKeyChar());
-  }
-
-  public void actionPerformed (ActionEvent e)
-  {
-    System.out.println("Action performed");
+    System.out.println(txtConsole.getText());
   }
 }
