@@ -57,6 +57,8 @@ Escape = Quit
 4. More Events
 5. Music (8-bit / retro)
 6. Multiplayer
+7. Different play modes
+8. Debt counter / score keeping
 
 ## Tools Used:
 Atom  
