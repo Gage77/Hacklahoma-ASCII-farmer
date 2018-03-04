@@ -34,9 +34,16 @@ public class plant
     return harvey //returns the harvest plant so that it may be added to the inventory
   }
 
+  //growth function for non-farmed plants
   public growBase(Plant p)
   {
     p.setHowGrown(p.getHowGrown+25);
+  }
+
+  //growth function for farmed plants
+  public growFarm(Plant p)
+  {
+    p.setHowGrown(p.getHowGrown+50);
   }
 
   //for when you plant your plant in new ground

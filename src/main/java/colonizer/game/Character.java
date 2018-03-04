@@ -7,7 +7,7 @@ using System;
 public class Character
 {
   //this will store the player inventory
-  private String [] inventory;
+  private string [] inventory;
   //the value (0-100) of the players hunger
   private int hunger;
   //the point of the character's location
@@ -18,7 +18,7 @@ public class Character
   {
     hunger = 100;
     location = new Point(0, 0);
-    String [] inventory = new String[3];
+    String [] inventory = new string[3];
   }
 
   //constructor
@@ -26,13 +26,13 @@ public class Character
   {
     this.hunger = hunger;
     this.location = new Point(x, y);
-    String [] inventory = new String[3];
+    String [] inventory = new string[3];
   }
 
   //this will create the string for player HUD
-  public String createHud ()
+  public string createHud ()
   {
-    String hud = new String("Inventory: "+ "\n"
+    string hud = new string("Inventory: "+ "\n"
     +"1.Tools  2.Base 3.Food  "+ "\n"
     +"Hunger Level "+ hunger+"%");
     return hud;
