@@ -52,10 +52,11 @@ Escape = Quit
 
 ## Stretch Goals
 1. Porting to web
-2. More Events
-3. More basebuilding
-4. Multiplayer
+2. Win condition
+3. More base building
+4. More Events
 5. Music (8-bit / retro)
+6. Multiplayer
 
 ## Tools Used:
 Atom  
