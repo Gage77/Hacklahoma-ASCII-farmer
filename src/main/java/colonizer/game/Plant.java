@@ -38,4 +38,40 @@ public class plant
   {
     //TODO implement replanting. should pull plant from inventory
   }
+
+  //getters/setters
+  public int getFoodValue()
+  {
+    return foodValue;
+  }
+
+  public setFoodValue(int v)
+  {
+    foodValue = v;
+  }
+
+  public String getPlantName()
+  {
+    return plantName;
+  }
+
+  public setPlantName(String name)
+  {
+    plantName = name;
+  }
+
+  public int getHowGrown()
+  {
+    return howGrown;
+  }
+
+  public setHowGrown(int growth)
+  {
+    howGrown = growth;
+    //ensures plant growth represents a %
+    if(howGrown > 100)
+      howGrown = 100;
+    if(howGrown < 0)
+      howGrown = 0;
+  }
 }
