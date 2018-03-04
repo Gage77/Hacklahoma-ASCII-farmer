@@ -65,8 +65,8 @@ public final class Colonizer
     txtConsole.setForeground(Color.WHITE);  // Makes the foreground (text) white
     txtConsole.setFont(consoleFont);  // Adds the font to the JTextArea
     txtConsole.setEditable(false); //prevents users from editing the map
-    //sets the caret to the @ symbol
-    //sets the blink rate of the caret 
+    //sets the caret to the insert mode
+    txtConsole.getCaret().setBlinkRate(2000);//sets the blink rate of the caret to 2 a second
 
     // Establish a new output stream for System.out, making it go to JTextArea
     PrintStream out = new PrintStream(new TextConsole(txtConsole));
@@ -83,14 +83,15 @@ public final class Colonizer
     mainFrame.pack();
     mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Set application to maximize in screen
     mainFrame.setVisible(true);
-    //TODO !!!test!!!
+    //TODO !!!test!!! Do we want to make the map an open file rather than a string?
     try {
-            //will hold the map
-            String mapString = "";
             //buffer to read in our map file
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(map.txt);
+            BufferedReader buff = new BufferedReader(new FileReader(map.txt);
+            //reads a file into the JTextArea. Currently this only reads a single map
+            txtConsole.read(buff, "map.txt");
 
-            //reads the entire file
+
+            /*//reads the entire file
             while((line = buff.readLine()) != null) {
                 //concats the file into one large string
                 mapString = mapString.concat(line);
@@ -102,6 +103,7 @@ public final class Colonizer
             catch(IOException e) {
               e.printStackTrace();
               }
+            **/
         }
 
     //String testMap = "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n"
