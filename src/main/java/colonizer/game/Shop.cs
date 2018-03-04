@@ -13,7 +13,7 @@ namespace MissionColonizer
     //empty constructor
     public static void shop()
     {
-        pcPlants = ;
+        pcPlants = null;
     }
 
     //a constructor that take an int for the $$ of the player
@@ -29,18 +29,12 @@ namespace MissionColonizer
       switch (index) //checks to see what the player selected
       {
           case 1:
-              Console.WriteLine("Sit tight, your shipment is on it's way colonizer!");
-              //TODO makes sure it prints correctly
               return "shovel"; //makes picking up plants faster
               break;
           case 2:
-              Console.WriteLine("Sit tight, your shipment is on it's way colonizer!");
-              //TODO makes sure it prints correctly
               return "hoe"; //makes tilling faster
               break;
           case 3:
-              Console.WriteLine("Sit tight, your shipment is on it's way colonizer!");
-              //TODO makes sure it prints correctly
               return "MRE" //foods that adds a lot to hunger 50+
               break;
           default:
@@ -70,15 +64,10 @@ namespace MissionColonizer
         int k = 1; //k will count the list number
         //this loop should move through the array printing each entry with
         //the format 1. plant info
-        for(i=0, i < pcPlants.length; i++) //NOTE is this logic correct?
+        for(i=0, i < pcPlants.length; i++)
         {
           sellView = sellView + k.ToString+". "+pcPlants[i].toString+'\n';
           k++; //increment k
-          if(k > 3) //if the player has more than 3 plants in inventory
-          {
-            //make multiple pages
-            //NOTE how do I 
-          }
         }
             //appends the exit option to the end of the menu
             sellView = sellView+i.ToString+". Exit";
