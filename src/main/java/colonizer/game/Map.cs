@@ -24,7 +24,7 @@ namespace MissionColonizer
 		// Plant locations, int is the Tuple in character
 		private Dictionary<int, Plant> plantValues = new Dictionary<int, Plant>();
 
-		private Character pc;	// Player character object
+		private Character pc;   // Player character object
 
 		public Map()
 		{
@@ -90,9 +90,40 @@ namespace MissionColonizer
 			return biomes;
 		}
 
-		public void Update()
+		public bool Update(Character pc)
 		{
+			// Run every frame
+			// Do keyboard input stuff
 
+			bool hasMoved = false;
+
+			// Has the user pressed a key?
+			if (Console.KeyAvailable == true)
+			{
+				ConsoleKeyInfo cki = Console.ReadKey();
+
+				switch (cki.Key)
+				{
+					case ConsoleKey.UpArrow:
+						pc.setPosition(pc.getX(), pc.getY() - 1);
+						hasMoved = true;
+						break;
+					case ConsoleKey.DownArrow:
+						pc.setPosition(pc.getX(), pc.getY() + 1);
+						hasMoved = true;
+						break;
+					case ConsoleKey.LeftArrow:
+						pc.setPosition(pc.getX() - 1, pc.getY());
+						hasMoved = true;
+						break;
+					case ConsoleKey.RightArrow:
+						pc.setPosition(pc.getX() + 1, pc.getY());
+						hasMoved = true;
+						break;
+				}
+			}
+
+			return hasMoved;
 		}
 
 		public void Draw()
