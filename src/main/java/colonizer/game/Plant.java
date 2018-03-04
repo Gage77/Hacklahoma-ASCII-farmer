@@ -6,7 +6,7 @@ using System;
 public class plant
 {
   private int foodValue = 0; // how much hunger this plant will replace
-  private String plantName = "This plant has not been named!!" // name of plant
+  private string plantName = "This plant has not been named!!" // name of plant
   private int howGrown = 0; // should be between 0-100%
 
   //empty constructor
@@ -34,6 +34,12 @@ public class plant
     return harvey //returns the harvest plant so that it may be added to the inventory
   }
 
+  public growBase(Plant p)
+  {
+    p.setHowGrown(p.getHowGrown+25);
+  }
+
+  //for when you plant your plant in new ground
   public plant rePlant(Plant harvey)
   {
     //TODO implement replanting. should pull plant from inventory

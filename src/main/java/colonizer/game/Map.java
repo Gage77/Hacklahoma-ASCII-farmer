@@ -4,7 +4,7 @@
 *  character location (within the square), and the valid exits (via a setter.getter).
 **/
 
-import java.util.*;
+using System;
 
 public class Map
 {
@@ -12,42 +12,32 @@ public class Map
   //the biomes of the square
   private ArrrayList<String> biomes = new ArrrayList<String>();
   //the unfarmed plants in the square
-  private ArrrayList<String> plants = new ArrrayList<String>();
+  private ArrrayList<Plant> plants = new ArrrayList<Plant>();
   //the farmed/alter plants in the square
   private ArrrayList<String> farms = new ArrrayList<String>();
   //character location within the square
   private String characterLocation = "-1";
-  //hold the valid exit 1 = valid, North, South, East, West
-  private int validExits = 1111;
 
   //grows all the plants on the map
   public static void grow()
   {
-    //TODO
+    //TODO change when we implement biomes
+    foreach (Plant thing in plants)
+    {
+      thing.growBase(thing);
+    }
   }
 
   //draws/update the HUD
-  public static void drawHud()
+  public static string drawHud(int x, int y)
   {
-    //TODO
+    return getLocation(x, y);
   }
 
   //gets the info for the position of the player
-  public static String getLocationInfo()
+  public static string getLocationInfo(int x, y)
   {
-    //TODO
-  }
-
-  //sets the value of the exits
-  public static void setExits(int exits)
-  {
-    validExits = exits;
-  }
-
-  //sets the valid exits
-  public static int getExits()
-  {
-    return validExits;
+    //TODO how do we determine this?
   }
 
   //sets the biome
