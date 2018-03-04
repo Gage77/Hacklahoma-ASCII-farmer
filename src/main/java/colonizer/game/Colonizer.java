@@ -64,7 +64,9 @@ public final class Colonizer
     txtConsole.setBackground(Color.BLACK);  // Sets background to black
     txtConsole.setForeground(Color.WHITE);  // Makes the foreground (text) white
     txtConsole.setFont(consoleFont);  // Adds the font to the JTextArea
-    txtConsole.setEditable(false);
+    txtConsole.setEditable(false); //prevents users from editing the map
+    //sets the caret to the @ symbol
+    //sets the blink rate of the caret 
 
     // Establish a new output stream for System.out, making it go to JTextArea
     PrintStream out = new PrintStream(new TextConsole(txtConsole));
@@ -102,10 +104,10 @@ public final class Colonizer
               }
         }
 
-    String testMap = "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n"
-    + "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n"
-    + "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n";
-    System.out.print(testMap);
+    //String testMap = "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n"
+    //+ "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n"
+    //+ "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n";
+    //System.out.print(testMap);
   }
 
   private static void startMenu()
