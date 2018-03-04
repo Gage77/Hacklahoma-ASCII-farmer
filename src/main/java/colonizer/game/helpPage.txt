@@ -6,4 +6,15 @@ R = Shop
 I = Inventory
 Escape = quit
 
+Map Key:
+@ = Your character
+Y = Trees, ready to plant
+T = Planted trees, green
+W = Water
+O = Ice
+m = Bushes, ready to pick
+* = Berry bush, green
+^ = Mountains
+
+
 Press any key to return...
