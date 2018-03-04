@@ -1,0 +1,12 @@
+
+    __  ____           _                  ______      __            _
+   /  |/  (_)_________(_)___  ____  _    / ____/___  / /___  ____  (_)___  ___  _____
+  / /|_/ / / ___/ ___/ / __ \/ __ \(_)  / /   / __ \/ / __ \/ __ \/ /_  / / _ \/ ___/
+ / /  / / (__  |__  ) / /_/ / / / /    / /___/ /_/ / / /_/ / / / / / / /_/  __/ /
+/_/  /_/_/____/____/_/\____/_/ /_(_)   \____/\____/_/\____/_/ /_/_/ /___/\___/_/
+
+      Press 1.       Become a Colonist (New Game)
+      Press 2.       Return Home (Load)
+      Press 3.       Admit Failure (Exit)
+      Press 4.       Support our Colonists! (Donate)
+      Press 5.       Would you like to know more? (Help)

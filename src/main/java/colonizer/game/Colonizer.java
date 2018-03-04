@@ -49,12 +49,14 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public final class Colonizer
+public final class Colonizer implements KeyListener, ActionListener
 {
   private static JFrame mainFrame = new JFrame("Missions: Colonizer");
   private static JTextArea txtConsole = new JTextArea();
 
   private static char csym = '@';
+
+  private static int menuSelection = 0;
 
   // Main method
   public static void main(String[] args)
@@ -76,27 +78,21 @@ public final class Colonizer
     // Add the JTextArea to the JFrame frame
     mainFrame.add(txtConsole);
 
-    // Start startMenu
-    startMenu();
+    // Create keyboard listener for JTextArea
+    txtConsole.isFocusable(true);
+    txtConsole.addKeyListener(this);
 
     // Pack and set frame to visible
     mainFrame.pack();
     mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Set application to maximize in screen
     mainFrame.setVisible(true);
-    //TODO !!!test!!! Do we want to make the map an open file rather than a string?
+
+    // Read in title ascii art
     try {
             //buffer to read in our map file
-            BufferedReader buff = new BufferedReader(new FileReader(map.txt));
+            BufferedReader buff = new BufferedReader(new FileReader("asciiTitle.txt"));
             //reads a file into the JTextArea. Currently this only reads a single map
-            txtConsole.read(buff, "map.txt");
-
-
-            /*//reads the entire file
-            while((line = buff.readLine()) != null) {
-                //concats the file into one large string
-                mapString = mapString.concat(line);
-            }
-            buff.close();**/
+            txtConsole.read(buff, "asciiTitle.txt");
 
             //TODO when do we close the file map.txt? On a save only?
         }//end try
@@ -107,51 +103,50 @@ public final class Colonizer
           e.printStackTrace();
         }//end IOException
         finally{
-        };
+    };
 
-    //String testMap = "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n"
-    //+ "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n"
-    //+ "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n";
-    //System.out.print(testMap);
-  }
+    while(menuSelection == 0)
+    {
 
-  private static void startMenu()
-  {
-    JFrame startMenuFrame = new JFrame("Missions: Conolizer");
-    JPanel startMenu = new JPanel();
-    startMenu.setLayout(new BoxLayout(startMenu, BoxLayout.LINE_AXIS));
-
-    JButton startButton = new JButton("Start");
-    JButton quitButton = new JButton("Quit");
-
-    startMenu.add(startButton);
-    startMenu.add(quitButton);
-
-    startMenuFrame.getContentPane().add(startMenu);
-
-    startMenuFrame.pack();
-    startMenuFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Set application to maximize in screen
-    startMenuFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    startMenuFrame.setVisible(true);
-  }
-
-  public static String readFile(String fileName)
-  {
-    try {
-      BufferedReader br = new BufferedReader(new FileReader(fileName));
-      StringBuilder sb = new StringBuilder();
-      String line = br.readLine();
-
-        while ((line = br.readLine()) != null) {
-            sb.append(line);
-            sb.append("\n");
-            line = br.readLine();
-        }
-      br.close();
-      return sb.toString();
-    } catch (IOException e1) {
-      e1.printStackTrace();
     }
-    return "NULL";
+
+    //TODO !!!test!!! Do we want to make the map an open file rather than a string?
+    try {
+            //buffer to read in our map file
+            BufferedReader buff = new BufferedReader(new FileReader("testMap.txt"));
+            //reads a file into the JTextArea. Currently this only reads a single map
+            txtConsole.read(buff, "testMap.txt");
+
+            //TODO when do we close the file map.txt? On a save only?
+        }//end try
+        catch(FileNotFoundException e) {
+          e.printStackTrace();
+        }//end FileNotFoundException
+        catch(IOException e) {
+          e.printStackTrace();
+        }//end IOException
+        finally{
+    };
+    System.out.println(txtConsole.getSelectedText());
+  }
+
+  public void keyTyped(KeyEvent e)
+  {
+    System.out.println("Key typed: " + e.getKeyChar());
+  }
+
+  public void keyPressed(KeyEvent e)
+  {
+    System.out.println("Key pressed: " + e.getKeyChar());
+  }
+
+  public void keyReleased(KeyEvent e)
+  {
+    System.out.println("Key released: " + e.getKeyChar());
+  }
+
+  public void actionPerformed (ActionEvent e)
+  {
+    System.out.println("Action performed");
   }
 }
