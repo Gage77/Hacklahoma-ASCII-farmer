@@ -31,7 +31,7 @@ namespace MissionColonizer
 			characterLocationX = 0;
 			characterLocationY = 0;
 
-			//TODO Find way to fill dictinary
+			//TODO read map file, and store location of all plants
 		}
 
 		public Map(Character pc)
