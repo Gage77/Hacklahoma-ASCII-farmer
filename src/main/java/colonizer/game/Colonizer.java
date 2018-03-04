@@ -54,6 +54,8 @@ public final class Colonizer
   private static JFrame mainFrame = new JFrame("Missions: Colonizer");
   private static JTextArea txtConsole = new JTextArea();
 
+  private static char csym = '@';
+
   // Main method
   public static void main(String[] args)
   {
@@ -72,13 +74,40 @@ public final class Colonizer
     // Add the JTextArea to the JFrame frame
     mainFrame.add(txtConsole);
 
+    // Start startMenu
+    startMenu();
+
     // Pack and set frame to visible
     mainFrame.pack();
     mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Set application to maximize in screen
     mainFrame.setVisible(true);
 
-    String testMap = readFile("testMap.txt");
+
+
+    String testMap = "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n"
+    + "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n"
+    + "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm\n";
     System.out.print(testMap);
+  }
+
+  private static void startMenu()
+  {
+    JFrame startMenuFrame = new JFrame("Missions: Conolizer");
+    JPanel startMenu = new JPanel();
+    startMenu.setLayout(new BoxLayout(startMenu, BoxLayout.LINE_AXIS));
+
+    JButton startButton = new JButton("Start");
+    JButton quitButton = new JButton("Quit");
+
+    startMenu.add(startButton);
+    startMenu.add(quitButton);
+
+    startMenuFrame.getContentPane().add(startMenu);
+
+    startMenuFrame.pack();
+    startMenuFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);  // Set application to maximize in screen
+    startMenuFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    startMenuFrame.setVisible(true);
   }
 
   public static String readFile(String fileName)
