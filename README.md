@@ -34,6 +34,7 @@ Escape = Quit
 - [x] Character movement
 - [x] Time passage / day/night cycle (time moves when you move)
 - [ ] HUD
+- [ ] Colorized map
 - [ ] Square information (biome, ground type [tilled / not tilled], plant info, etc.)
 - [ ] Inventory / picking things up
 - [x] Equipment / buying (shovel, hoe, etc.)
@@ -59,6 +60,7 @@ Escape = Quit
 6. Multiplayer
 7. Different play modes
 8. Debt counter / score keeping
+9. Vehicles!
 
 ## Tools Used:
 Atom  
