@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 /**
 *  The Game class will hold all information pertaining to the currently
 * 	loaded game, including the player character and the map. It will also

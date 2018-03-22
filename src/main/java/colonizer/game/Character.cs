@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 /**
 *  This class will hold all information pertaining to character,
 * 	including their x and y coordinates, the symbol used to represent
