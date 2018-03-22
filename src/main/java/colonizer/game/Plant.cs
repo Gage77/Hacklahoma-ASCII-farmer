@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 /**
 The plant object will keep track of how much hunger a plant will replace
 and how grow it's food is

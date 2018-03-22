@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 /************************************
 * Mission: Colonizer
 **************************
@@ -123,7 +125,7 @@ namespace MissionColonizer
 			game.Run();
 		}
 
-		static void displayHelp()
+		static void displayingHelp()
 		{
 			Console.Clear();
 
