@@ -7,13 +7,13 @@
 ***************************************
 * Modificatoin History:
 *   creation & python3 switch
-*
+*   more python3 code
 **************************************
 * @author Conner Flansburg, Hunter Black
 * @version 0.851
 *
 ****************************
-* Last Edited: March 22
+* Last Edited: March 23
 ****************************
 '''
 import tdl
@@ -23,6 +23,9 @@ import sys
 
 
 class colonizerGameEngine():
+
+    if __name__ == "__main__":  # if this file hasee not been imported
+        main()  # run main
 
     '''
     main

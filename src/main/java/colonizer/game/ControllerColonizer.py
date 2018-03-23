@@ -29,6 +29,7 @@ class ControllerColonizer():
         # creates a main menu
         menuAction = view.createMenu()
 
+        # these options connect the main menu view with the model
         if menuAction is 1:  # if the player selected new game
             model.initGame(rootConsole, offScreen, True)
 

@@ -38,6 +38,7 @@ class ModelColonizer():
             in the map (plants, tools, the player...)
             '''
             allThings = [player]
+            # TODO move this loop into the controllor and have initGame reuturn
             # runs until the window is closed
             while not tdl.event.is_window_closed():
                 # draws the everything on the map NOTE move to view?

@@ -2,18 +2,28 @@
 
 
 import tdl
-import Globals  # holds the games global varibles
 import GameHUD  # will handle the in game view
 
 
 class viewColonizer():
 
+    # class varibles
+    rootConsole = None
+    offScreen = None
+
     '''
     __init__
     this is the constructor for the view.
+
+    Parameters:
+        console
+        This is the primary "root" console for the game. It will be managed
+        by the viewColonizer so it needs to be passed it once it is created
     '''
-    def __init__(self, rootConsole, offScreen):
-        pass
+    def __init__(self, root, off):
+        # creates an off screen console object
+        self.rootConsole = root
+        self.offScreen = off
 
     '''
     createMenu
@@ -23,7 +33,7 @@ class viewColonizer():
         returns a 1 when a new game is seleceted and
         0 when load a game is seleceted
     '''
-    def createMenu(self, rootConsole):
+    def createMenu(self):
         '''
         The code below takes the txt menu we have and make cuts it into two
         parts. One part will conatin only the title while the other half will
@@ -42,9 +52,9 @@ class viewColonizer():
         # TODO makes sure that the menu print correctly
         # I'm not sure I undstand tdl's cursor or how it moves
         menu = "\033[1;31;40m "+menu  # ANSI escape coloring
-        rootConsole.move(0, 0)  # sets cursor to top left corner
-        rootConsole.print_str(title)  # prints the title
-        rootConsole.print_str(menu)  # prints the menu
+        self.rootConsole.move(0, 0)  # sets cursor to top left corner
+        self.rootConsole.print_str(title)  # prints the title
+        self.rootConsole.print_str(menu)  # prints the menu
 
         '''
         The code below handles the actual menu operations and will call other
@@ -72,6 +82,19 @@ class viewColonizer():
                       + 'New Game)')
 
     '''
+    updateView
+    Updates the views controlled by viewColonizer
+
+    return:
+        None
+    '''
+    def updateView(self, root=None, off=None):
+        if root is not None:
+            self.rootConsole = root
+        if off is not None:
+            self.offScreen = off
+
+    '''
     createHUD
     creates the in game hud when called. this should be used by the
     controller to create an in game view.
@@ -79,10 +102,10 @@ class viewColonizer():
     return:
         None
     '''
+    # TODO write helper methods for the viewColonizer
     def createHUD(self):
         pass
-        # this will actually open a new window,
-        # and then return to the main menu
+        # this will create the in game view
 
     '''
     showHelp
@@ -93,8 +116,8 @@ class viewColonizer():
     '''
     def runHelp(self):
         pass
-        # this will actually open a new window,
-        # and then return to the main menu
+        # this will change the display to the help menu and
+        # then return to the main menu
 
     '''
     runDonate
