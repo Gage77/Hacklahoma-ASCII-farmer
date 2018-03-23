@@ -10,7 +10,11 @@ class ControllerColonizer():
 
     '''
     __init__
-    this is the constructor for the controller.
+    this is the constructor for the controller. As soon as it is created it
+    goes to work managing the model & view of the game. All of the game's
+    functionality happens inside of this constructor. On a request to exit
+    it will raise an SystemExit Exception which will be caught be the
+    colonizerGameEngine that created that instance of the ControllerColonizer.
     '''
     def __init__(self, rootConsole):
 
@@ -23,13 +27,16 @@ class ControllerColonizer():
         view = ViewColonizer(rootConsole, offScreen)  # a ViewColonizer object
 
         # creates a main menu
-        menuAction = view.createMenu
+        menuAction = view.createMenu()
 
         if menuAction is 1:  # if the player selected new game
             model.initGame(rootConsole, offScreen, True)
 
-        if menuAction is 0:  # if the player selected load a game
+        elif menuAction is 0:  # if the player selected load a game
             model.initGame(rootConsole, offScreen, False)
+
+        elif menuAction is -999:  # if the player has selected quit
+            raise SystemExit()  # this will be caught by the engine
 
 
 '''

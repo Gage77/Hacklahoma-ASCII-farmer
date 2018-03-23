@@ -49,6 +49,12 @@ class ModelColonizer():
                 # redraw changes
                 tdl.flush()
 
+                # TODO game functionality goes here
+                '''
+                should we have some class that handles the actaul turns in the
+                game?
+                '''
+
                 # erase all objects at their old locations, before they move
                 for thing in allThings:
                     thing.clear()

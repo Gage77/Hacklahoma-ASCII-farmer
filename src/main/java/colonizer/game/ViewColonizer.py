@@ -3,6 +3,7 @@
 
 import tdl
 import Globals  # holds the games global varibles
+import GameHUD  # will handle the in game view
 
 
 class viewColonizer():
@@ -23,6 +24,13 @@ class viewColonizer():
         0 when load a game is seleceted
     '''
     def createMenu(self, rootConsole):
+        '''
+        The code below takes the txt menu we have and make cuts it into two
+        parts. One part will conatin only the title while the other half will
+        contain the menu options. This is so the title can be color using
+        ANSI escape codes & may be removed in later releases. We may also
+        choose to color options in ()'s later.
+        '''
         # creates the text for the main menu
         title = ''  # will hold the title text
         menu = ''  # will hold the menu text
@@ -31,15 +39,50 @@ class viewColonizer():
                 title = title + line  # keep building the title
             else:
                 menu = menu + line  # otherwise build the menu
-            # TODO go back a pull out things in () so they can be colored
-        # prints the main menu
-        rootConsole.set_colors(fg=(191, 95, 0))  # set color to red/orange
+        # TODO makes sure that the menu print correctly
+        # I'm not sure I undstand tdl's cursor or how it moves
+        menu = "\033[1;31;40m "+menu  # ANSI escape coloring
         rootConsole.move(0, 0)  # sets cursor to top left corner
         rootConsole.print_str(title)  # prints the title
-        rootConsole.set_colors(fg=(255, 255, 255))  # set color to white
         rootConsole.print_str(menu)  # prints the menu
-        # TODO add menu functionality
-        # stay in here until either a new game or load game is selected
+
+        '''
+        The code below handles the actual menu operations and will call other
+        methods based on the choice(s) may be the user. Only the new game,
+        load game, and exit options should exit the menu. All others should
+        return to it after displaying either the help menu or the
+        donation page.
+        '''
+        while True:  # should not need to break as all exits options return
+            choice = input()  # user input
+            if choice is 1 or "new game" in choice.lower:
+                return 1  # tells the caller to run a new game
+            elif choice is 2 or "load" in choice.lower:
+                return 0  # tells the caller to load a game
+            elif choice is 3 or "exit" in choice.lower:
+                return runExit  # tells the caller to end the program
+            elif choice is 4 or "donate" in choice.lower:
+                runDonate  # runs donate but returns to the main menu
+            elif choice is 5 or "help" in choice.lower:
+                runHelp()  # runs donate but returns to the main menu
+            else:  # invalid input. This string is largely a placeholder
+                print('What you have entered is not a valid input. '
+                      + 'Please enter either the number of you selection '
+                      + 'or the text within the parentheses (for example '
+                      + 'New Game)')
+
+    '''
+    createHUD
+    creates the in game hud when called. this should be used by the
+    controller to create an in game view.
+
+    return:
+        None
+    '''
+    def createHUD(self):
+        pass
+        # this will actually open a new window,
+        # and then return to the main menu
 
     '''
     showHelp
@@ -48,5 +91,31 @@ class viewColonizer():
     return:
         None
     '''
-    def showHelp(self):
+    def runHelp(self):
         pass
+        # this will actually open a new window,
+        # and then return to the main menu
+
+    '''
+    runDonate
+    opens a donation webpage
+
+    return:
+        None
+    '''
+    def runDonate(self):
+        pass
+        # this will open a wepage, but not leave main
+        # OR it could go to an in program donate page
+
+    '''
+    runExit
+    exits the program and serves as the quit option. This gives so saftey
+    message (i.e. "Are you sure?") as it is assumed you are in the main menu
+    and so no data would be lost
+
+    return:
+        returns -999 to tell the controller to end the program
+    '''
+    def runExit(self):
+        return -999
