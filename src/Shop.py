@@ -50,8 +50,8 @@ class Shop:
 	def createShopView(self):
 		shopView = '''(Your radio crackles) This is Colonial Requisition.
 		How can we help?
-		1. Shovel   4. sell
-		2. hoe      5. Exit
+		1. Shovel   4. Sell
+		2. Hoe      5. Exit
 		3. MRE
 
 		Your colonie's budget is: {wealth} Cr\n'''.format(wealth=credits)

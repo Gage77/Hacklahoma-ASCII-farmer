@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 import tdl
-import ViewColonizer  # the view
-import ModelColonizer  # the model
+from ModelColonizer import ModelColonizer  # the model
+from ViewColonizer import ViewColonizer  # the view
 import Globals  # holds the games global varibles
 
 
@@ -41,6 +41,6 @@ class ControllerColonizer():
 
 
 '''
-all othe methods should be helper functions only. Everything else is done
+all other methods should be helper functions only. Everything else is done
 in the constructor
 '''

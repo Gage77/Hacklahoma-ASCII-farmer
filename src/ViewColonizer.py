@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 
-
 import tdl
 import GameHUD  # will handle the in game view
 
 
-class viewColonizer():
+class ViewColonizer():
 
     # class varibles
     rootConsole = None
