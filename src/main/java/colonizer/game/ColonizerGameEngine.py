@@ -66,7 +66,3 @@ def main():
 
 if __name__ == "__main__":  # if this file hasee not been imported
     main()  # run main
-
-
-# TODO Move game loop to controller
-# TODO Model will serve essentially as a database of sorts (holds info on plants, map, character, etc.)

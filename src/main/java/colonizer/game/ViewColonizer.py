@@ -23,7 +23,6 @@ class ViewColonizer():
         # creates an off screen console object
         self.rootConsole = root
         self.offScreen = off
-        print("test");
 
     '''
     createMenu
